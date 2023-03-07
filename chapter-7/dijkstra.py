@@ -76,3 +76,41 @@ calculate_costs(graph, costs, parents, processed)
 print("Cost from the start to each node:", costs)
 print("Path:", calculate_path(costs))
 
+
+graph = {
+    "start": {
+        "a": 10
+    },
+    "a": {
+        "b": 20
+    },
+    "b": {
+        "c": 1,
+        "fin": 30
+    },
+    "c": {
+        "a": 1
+    },
+    "fin": {
+    }
+}
+
+costs = {
+    "a": graph["start"]["a"],
+    "b": infinity,
+    "c": infinity,
+    "fin": infinity
+}
+
+parents = {
+    "a": "start",
+    "b": None,
+    "c": None,
+    "fin": None
+}
+
+processed = []
+
+calculate_costs(graph, costs, parents, processed)
+print("Cost from the start to each node:", costs)
+print("Path:", calculate_path(costs))
